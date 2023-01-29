@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: node
+    container_name: "app"
+    networks:
+      - node-networks
+    volumes: 
+      - ./node:/usr/src/app
+    tty: true
+    ports:
+      - "80:80"
+
+networks:
+  node-networks:
+    driver: bridge
